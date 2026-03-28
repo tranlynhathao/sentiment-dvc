@@ -294,7 +294,7 @@ pip install "dvc[s3]"
 dvc remote modify --local dagshub access_key_id <DAGSHUB_TOKEN>
 dvc remote modify --local dagshub secret_access_key <DAGSHUB_TOKEN>
 
-git checkout dataset-v2
+git checkout main
 dvc pull -r dagshub
 ```
 
@@ -314,7 +314,7 @@ pip install "dvc[s3]"
 dvc remote modify --local dagshub access_key_id <DAGSHUB_TOKEN>
 dvc remote modify --local dagshub secret_access_key <DAGSHUB_TOKEN>
 
-git checkout dataset-v2
+git checkout main
 dvc pull -r dagshub
 python - <<'PY'
 import pandas as pd
@@ -369,31 +369,32 @@ Expected result:
 ### 9.3 Switch to Version 2
 If the dataset already exists in the local DVC cache:
 ```bash
-git checkout dataset-v2
+git checkout main
 dvc checkout
 ```
 
 If the dataset is not in the local DVC cache:
 ```bash
-git checkout dataset-v2
+git checkout main
 dvc pull -r dagshub
 ```
 
 Expected result:
 - `data/raw/sentiment.csv` is restored to the 8-row version.
 
+If the exact historical version-2 commit is needed instead of the current `main` branch, replace `git checkout main` with `git checkout dataset-v2`.
+
 ## 10. Commands and Example Outputs
-### 10.1 Local Git History
+### 10.1 Dataset-Related Git History
 Command:
 ```bash
-git log --oneline --decorate --all
+git log --oneline --decorate -- data/raw/sentiment.csv.dvc
 ```
 
 Actual local output:
 ```text
-e1bee55 (HEAD -> main, tag: dataset-v2) Track sentiment dataset v2
+e1bee55 (tag: dataset-v2) Track sentiment dataset v2
 bb3654c (tag: dataset-v1) Track sentiment dataset v1
-feaec47 Initialize Git and DVC
 ```
 
 ### 10.2 Data Tracking Files

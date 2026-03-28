@@ -8,10 +8,12 @@ Current local dataset versions:
 - `dataset-v1` -> 4 labeled rows.
 - `dataset-v2` -> 8 labeled rows.
 
-Current local Git history:
+Key dataset-related Git history:
 - `feaec47` `Initialize Git and DVC`
 - `bb3654c` `Track sentiment dataset v1`
 - `e1bee55` `Track sentiment dataset v2`
+
+The `main` branch also includes later documentation commits, but the dataset versions themselves are represented by the commits and tags above.
 
 ## Local Setup
 ```bash
@@ -85,7 +87,7 @@ pip install "dvc[s3]"
 dvc remote modify --local dagshub access_key_id <DAGSHUB_TOKEN>
 dvc remote modify --local dagshub secret_access_key <DAGSHUB_TOKEN>
 
-git checkout dataset-v2
+git checkout main
 dvc pull -r dagshub
 ```
 
@@ -104,13 +106,15 @@ git checkout dataset-v1
 dvc checkout
 ```
 
-Switch back to version 2:
+Switch back to the current version 2 state on `main`:
 ```bash
-git checkout dataset-v2
+git checkout main
 dvc checkout
 ```
 
 If the target data is not already present in the local DVC cache, use `dvc pull -r dagshub` after `git checkout`.
+
+If you specifically want the exact historical commit tagged as version 2, use `git checkout dataset-v2` instead of `git checkout main`.
 
 ## Notes
 - Git stores dataset versions indirectly by versioning `data/raw/sentiment.csv.dvc`.
