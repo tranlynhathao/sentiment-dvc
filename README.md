@@ -139,4 +139,4 @@ If you specifically want the exact historical commit tagged as version 2, use `g
 - DVC stores the actual file contents in the local cache and in the configured remote storage.
 - To restore a historical dataset, Git selects the correct pointer file first, then DVC materializes the matching data.
 
-See `report.md` for the full lab report and screenshot checklist.
+See `report.pdf` for the full lab report and screenshot checklist.
