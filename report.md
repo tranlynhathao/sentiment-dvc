@@ -144,6 +144,7 @@ Practical consequence:
 - `git checkout dataset-v1` changes the pointer file to the version 1 hash.
 - `dvc checkout` restores the version 1 dataset from local DVC cache if it exists locally.
 - `dvc pull` downloads and restores the version 1 dataset from remote storage if the local cache does not contain it.
+- Local verification in this repository showed that `git checkout dataset-v1` alone left the 8-row workspace file in place until `dvc checkout` rewrote it to the correct 4-row version.
 
 ## 6. Corrected Mistakes From the Original Assignment
 The original PDF contains several issues or omissions. They are corrected below.
