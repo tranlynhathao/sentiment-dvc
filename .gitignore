@@ -1,0 +1,6 @@
+.venv/
+.dvc-site-cache/
+.dvc-global-config/
+.cache/
+.home/
+.DS_Store
